@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Warwick SU - Home</title>
+
+  <!-- Flask 静态资源 -->
+  <link rel="stylesheet" href="/static/assets/css/style.css">
+  <script src="/static/assets/js/auth-mock.js" defer></script>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="/static/images/warwick-logo.png" alt="test logo" width="180">
+      </a>
+
+      <!-- 中间导航（居中） -->
+      <nav class="nav-center">
+        <a href="/" class="nav-link is-active">Home</a>
+        <a href="/rooms" class="nav-link">Room</a>
+        <a href="/schedule" class="nav-link">Schedule</a>
+        <a href="/bookings" class="nav-link">My Booking</a>
+        <a href="/admin" class="nav-link" data-role="admin" style="display:none;">Admin</a>
+
+      </nav>
+
+      <!-- 右侧动作 -->
+      <nav class="nav-right">
+        <!-- 未登录可见 -->
+        <a href="/login" class="nav-link" data-auth="guest">Login</a>
+        <a href="/register" class="nav-link" data-auth="guest">Sign Up</a>
+        <!-- 登录后可见 -->
+        <span class="nav-link" id="navUser" data-auth="user" style="pointer-events:none;"></span>
+        <a href="#" class="nav-link" id="logoutBtn" data-auth="user">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Banner -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-box">
+          <img src="/static/images/banner.jpg" alt="" class="hero-bg">
+          <a class="hero-cta" href="/rooms">Get Start</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Section 1 · How to Reach the Society Spaces ===== -->
+  <section class="home-section">
+    <div class="container">
+      <header class="sec-head">
+        <h2>Find Your Society Spaces</h2>
+        <p class="muted">Step-by-step directions to the building, floors, and entrances</p>
+      </header>
+
+      <div class="loc-grid">
+        <!-- WAC -->
+        <article class="loc-card">
+          <img class="loc-thumb" src="/static/images/warwick arts centre.jpg" alt="warwick arts centre">
+          <div class="loc-body">
+            <h3>Warwick arts centre</h3>
+            <p class="meta">warwick university · CV4 7FD · <strong>1F–2F</strong></p>
+            <ul class="loc-steps">
+              <li>Walk 6 minutes from the main gate to the warwick arts centre entrance</li>
+              <li>Take the elevator on the right-hand side to <strong>1F</strong></li>
+              <li>Follow the signage for <strong>Rooms SU-101~SU-110</strong></li>
+            </ul>
+            <div class="loc-badges">
+              <span class="badge">Open 08:00–22:00</span>
+              <span class="badge">Info Desk</span>
+              <span class="badge">Accessible elevator</span>
+            </div>
+            <div class="loc-actions">
+              <a class="btn btn--primary" href="/rooms">View Rooms</a>
+              <a class="btn" href="#" aria-disabled="true">View Map</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- FAB -->
+        <article class="loc-card">
+          <img class="loc-thumb" src="/static/images/Faculty of Arts Building.jpg" alt="Faculty of Arts Building">
+          <div class="loc-body">
+            <h3>Faculty of Arts Building</h3>
+            <p class="meta">University Rd · CV4 7EQ · <strong>3F–4F</strong></p>
+            <ul class="loc-steps">
+              <li>Get off at the bus stop and walk 2 minutes to Faculty of Arts Building</li>
+              <li>Enter the lobby and take the elevator to <strong>3F</strong></li>
+              <li>Follow the signage for <strong>SU-105~SU-109</strong></li>
+            </ul>
+            <div class="loc-badges">
+              <span class="badge">Open 08:00–22:00</span>
+              <span class="badge">Self-service printing</span>
+              <span class="badge">Air conditioning</span>
+            </div>
+            <div class="loc-actions">
+              <a class="btn btn--primary" href="/rooms#Faculty of Arts Building">View Rooms</a>
+              <a class="btn" href="#" aria-disabled="true">View Map</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Union -->
+        <article class="loc-card">
+          <img class="loc-thumb" src="/static/images/Union.jpg" alt="Union">
+          <div class="loc-body">
+            <h3>Union</h3>
+            <p class="meta">University Rd · CV4 7AL · <strong>2F</strong></p>
+            <ul class="loc-steps">
+              <li>Exit through the SU Building side door and walk 3 minutes to the Union</li>
+              <li>Check in at the <strong>2F</strong> reception desk</li>
+              <li>Large event spaces available on <strong>3F</strong></li>
+            </ul>
+            <div class="loc-badges">
+              <span class="badge">Open 10:00–22:00</span>
+              <span class="badge">Large hall / stage</span>
+              <span class="badge">AV equipment</span>
+            </div>
+            <div class="loc-actions">
+              <a class="btn btn--primary" href="/rooms#Union">View Rooms</a>
+              <a class="btn" href="#" aria-disabled="true">View Map</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section 2 · About the Spaces & Website ===== -->
+  <section class="home-section">
+    <div class="container">
+      <header class="sec-head">
+        <h2>About the Spaces & This Website</h2>
+        <p class="muted">Designed for student societies: easier room info, smoother booking</p>
+      </header>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>What can you do here?</h3>
+          <ul class="tick">
+            <li>Browse room details: layout, capacity, equipment, and availability</li>
+            <li>Check free time slots, <strong>Exec members</strong> can book directly</li>
+            <li>Manage your bookings in “My Booking” (reschedule / cancel / rebook)</li>
+            <li>Read policies for entry, cancellation, and usage</li>
+          </ul>
+
+          <h3 style="margin-top:14px;">How it works</h3>
+          <ol class="flow">
+            <li>Select a building and room → check available slots</li>
+            <li>Login (or register) → Exec members can confirm booking</li>
+            <li>Receive confirmation → follow guidance to enter on the day</li>
+          </ol>
+
+          <div class="about-cta">
+            <a class="btn btn--primary" href="/rooms">Start Booking</a>
+            <a class="btn" href="/login">Login / Register</a>
+          </div>
+        </div>
+
+        <aside class="about-card">
+          <h4>Key Facilities</h4>
+          <ul class="features">
+            <li>Campus Wi-Fi</li>
+            <li>HDMI & sound system</li>
+            <li>Movable tables and chairs</li>
+            <li>Stage & lighting (large rooms)</li>
+            <li>Accessible design</li>
+            <li>Basic security patrols</li>
+          </ul>
+
+          <h4>Booking Policy</h4>
+          <p class="muted small">Bookings can be made up to 30 days in advance. Changes not allowed within X hours before start. Some rooms may charge an hourly fee.</p>
+          <a class="btn btn--ghost" href="/schedule">See Schedule & Policy</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section 3 · Testimonials ===== -->
+  <section class="home-section">
+    <div class="container">
+      <header class="sec-head">
+        <h2>What Our Students Say</h2>
+        <p class="muted">Real feedback from society members</p>
+      </header>
+
+      <div class="testi-grid">
+        <figure class="testi-card">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>The booking process was smooth, and the directions helped us find the room easily. The projector worked perfectly.</blockquote>
+          <figcaption>
+            <img class="avatar" src="/static/images/avatar-1.jpg" alt="">
+            <div>
+              <strong>Jacob · Photography Society</strong>
+              <div class="muted small">Used SU-101 · 30 people</div>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="testi-card">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>The Annex space was perfect for our rehearsal. Seeing free slots online saved us so much time.</blockquote>
+          <figcaption>
+            <img class="avatar" src="/static/images/avatar-2.jpg" alt="">
+            <div>
+              <strong>Arjun · Dance Club</strong>
+              <div class="muted small">Used Annex 6F · 60 people</div>
+            </div>
+          </figcaption>
+        </figure>
+
+        <figure class="testi-card">
+          <div class="stars" aria-label="4 stars">★★★★☆</div>
+          <blockquote>Overall great experience. Would love to see live occupancy maps in the future!</blockquote>
+          <figcaption>
+            <img class="avatar" src="/static/images/avatar-3.jpg" alt="">
+            <div>
+              <strong>Aisha · Debate Society</strong>
+              <div class="muted small">Used Main 4F · 40 people</div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 也可以放底部（但导航显隐已由上面的 defer 脚本处理） -->
+  <!-- <script src="/static/assets/js/auth-mock.js"></script> -->
+</body>
+</html>

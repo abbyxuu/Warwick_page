@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Warwick SU - Rooms</title>
+
+  <!-- Flask 静态资源路径 -->
+  <link rel="stylesheet" href="/static/assets/css/style.css">
+  <script src="/static/assets/js/auth-mock.js" defer></script>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="/static/images/warwick-logo.png" alt="Warwick" width="180">
+      </a>
+
+      <!-- 中间导航（居中） -->
+      <nav class="nav-center">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/rooms" class="nav-link is-active">Room</a> <!-- 当前页面高亮 -->
+        <a href="/schedule" class="nav-link">Schedule</a>
+        <a href="/bookings" class="nav-link">My Booking</a>
+        <a href="/admin" class="nav-link" data-role="admin" style="display:none;">Admin</a>
+      </nav>
+
+      <!-- 右侧动作 -->
+      <nav class="nav-right">
+        <!-- 未登录可见 -->
+        <a href="/login" class="nav-link" data-auth="guest">Login</a>
+        <a href="/register" class="nav-link" data-auth="guest">Sign Up</a>
+        <!-- 登录后可见 -->
+        <span class="nav-link" id="navUser" data-auth="user" style="pointer-events:none;"></span>
+        <a href="#" class="nav-link" id="logoutBtn" data-auth="user">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Rooms — Cards -->
+    <section class="rooms rooms--cards">
+      <header class="rooms__head">
+        <h1>Available Rooms</h1>
+        <div class="filters">
+          <input class="input" placeholder="Search room or location…">
+          <select class="input">
+            <option>Any capacity</option><option>≤ 30</option><option>31–50</option><option>≥ 80</option>
+          </select>
+        </div>
+      </header>
+
+      <div class="card-grid">
+        <!-- 1 -->
+        <article class="room-card">
+          <img src="/static/images/room-101.jpg" alt="Room SU-101" class="room-thumb">
+          <div class="room-card__body">
+            <div class="room-card__header">
+              <h3>SU-101</h3>
+              <span class="badge badge--ok">Available</span>
+            </div>
+            <p class="meta">SU Building · 1F</p>
+            <p class="meta">Capacity 30</p>
+            <div class="room-card__actions">
+              <a class="btn btn--primary"
+                 href="#"
+                 data-open-book
+                 data-room="SU-101"
+                 data-capacity="30"
+                 data-location="SU Building · 1F"
+                 data-start="2025-09-05T10:30"
+                 data-end="2025-09-05T11:00">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="room-card">
+          <img src="/static/images/room-102.jpg" alt="Room SU-102" class="room-thumb">
+          <div class="room-card__body">
+            <div class="room-card__header">
+              <h3>SU-102</h3>
+              <span class="badge badge--warn">Booked</span>
+            </div>
+            <p class="meta">FAB · 1F</p>
+            <p class="meta">Capacity 6</p>
+            <div class="room-card__actions">
+              <a class="btn btn--ghost" href="#schedule">Next Slot 18:00</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="room-card">
+          <img src="/static/images/room-103.jpg" alt="Room SU-103" class="room-thumb">
+          <div class="room-card__body">
+            <div class="room-card__header">
+              <h3>SU-103</h3>
+              <span class="badge badge--ok">Available</span>
+            </div>
+            <p class="meta">FAB · 2F</p>
+            <p class="meta">Capacity 4</p>
+            <div class="room-card__actions">
+              <a class="btn btn--primary"
+                 href="#"
+                 data-open-book
+                 data-room="SU-103"
+                 data-capacity="4"
+                 data-location="FAB · 2F"
+                 data-start="2025-09-05T10:30"
+                 data-end="2025-09-05T11:00">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="room-card">
+          <img src="/static/images/room-104.jpg" alt="Room SU-104" class="room-thumb">
+          <div class="room-card__body">
+            <div class="room-card__header">
+              <h3>SU-104</h3>
+              <span class="badge badge--ok">Available</span>
+            </div>
+            <p class="meta">WAC · 2F</p>
+            <p class="meta">Capacity 10</p>
+            <div class="room-card__actions">
+              <a class="btn btn--primary"
+                 href="#"
+                 data-open-book
+                 data-room="SU-104"
+                 data-capacity="10"
+                 data-location="WAC · 2F"
+                 data-start="2025-09-05T10:30"
+                 data-end="2025-09-05T11:00">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="room-card">
+          <img src="/static/images/room-105.jpg" alt="Room SU-105" class="room-thumb">
+          <div class="room-card__body">
+            <div class="room-card__header">
+              <h3>SU-105</h3>
+              <span class="badge badge--warn">Booked</span>
+            </div>
+            <p class="meta">WBS · 2F</p>
+            <p class="meta">Capacity 15</p>
+            <div class="room-card__actions">
+              <a class="btn btn--ghost" href="#schedule">Next Slot 20:00</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="room-card">
+          <img src="/static/images/room-106.jpg" alt="Room SU-106" class="room-thumb">
+          <div class="room-card__body">
+            <div class="room-card__header">
+              <h3>SU-106</h3>
+              <span class="badge badge--ok">Available</span>
+            </div>
+            <p class="meta">Main Building · 3F</p>
+            <p class="meta">Capacity 15</p>
+            <div class="room-card__actions">
+              <a class="btn btn--primary"
+                 href="#"
+                 data-open-book
+                 data-room="SU-106"
+                 data-capacity="15"
+                 data-location="Main Building · 3F"
+                 data-start="2025-09-05T10:30"
+                 data-end="2025-09-05T11:00">Book Now</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Booking Modal -->
+  <div class="modal modal--wide" id="bookingModal" aria-hidden="true" role="dialog" aria-labelledby="bk-title">
+    <div class="modal__overlay" data-close="true"></div>
+
+    <div class="modal__dialog" role="document">
+      <button class="modal__close" aria-label="Close" data-close="true">×</button>
+
+      <!-- Stepper -->
+      <header class="stepper">
+        <div class="stepper__item is-active" data-step-i="1"><span>1</span> Booking</div>
+        <div class="stepper__item" data-step-i="2"><span>2</span> Create Account</div>
+        <div class="stepper__item" data-step-i="3"><span>3</span> Summary</div>
+      </header>
+
+      <!-- Content -->
+      <div class="bk-grid">
+        <!-- 左侧：步骤内容 -->
+        <section class="bk-main">
+          <!-- Step 1 -->
+          <div class="bk-step" data-step="1">
+            <h2 id="bk-title">Booking Setup</h2>
+
+            <details open class="bk-card">
+              <summary>General</summary>
+              <div class="bk-card__body">
+                <label class="field">
+                  <span>Title</span>
+                  <input id="bk-title-input" type="text" placeholder="Add title…">
+                </label>
+
+                <div class="field-row">
+                  <label class="field">
+                    <span>Start</span>
+                    <input id="bk-start" type="datetime-local">
+                  </label>
+                  <label class="field">
+                    <span>End</span>
+                    <input id="bk-end" type="datetime-local">
+                  </label>
+                </div>
+
+                <label class="field field--checkbox">
+                  <input id="bk-all-day" type="checkbox"> <span>All day</span>
+                </label>
+              </div>
+            </details>
+
+            <details class="bk-card">
+              <summary>Description</summary>
+              <div class="bk-card__body">
+                <textarea id="bk-notes" rows="4" placeholder="Purpose, special needs…"></textarea>
+              </div>
+            </details>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bk-step" data-step="2" hidden>
+            <h2>Create Account</h2>
+            <div class="bk-card bk-card__body">
+              <div class="field-row">
+                <label class="field">
+                  <span>Full name</span>
+                  <input id="acc-name" type="text" placeholder="Your name">
+                </label>
+                <label class="field">
+                  <span>Email</span>
+                  <input id="acc-email" type="email" placeholder="you@warwick.ac.uk">
+                </label>
+              </div>
+              <label class="field">
+                <span>Club / Society</span>
+                <input id="acc-club" type="text" placeholder="e.g. Photography Society">
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bk-step" data-step="3" hidden>
+            <h2>Review & Submit</h2>
+            <div class="bk-card bk-card__body">
+              <ul class="review">
+                <li><strong>Room:</strong> <span id="rv-room"></span></li>
+                <li><strong>When:</strong> <span id="rv-time"></span></li>
+                <li><strong>Title:</strong> <span id="rv-title"></span></li>
+                <li><strong>Contact:</strong> <span id="rv-user"></span></li>
+                <li><strong>Notes:</strong> <span id="rv-notes"></span></li>
+              </ul>
+              <p class="muted">* This is a demo UI. In the real app, submitting will call the backend API.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 右侧：摘要 -->
+        <aside class="bk-side">
+          <div class="summary">
+            <h3>Booking Summary</h3>
+            <div class="summary__room">
+              <div class="name" id="sum-room">Room</div>
+              <div class="meta"><span id="sum-loc">Location</span> · <span id="sum-cap">0 seats</span></div>
+            </div>
+            <div class="summary__time" id="sum-time">--</div>
+            <div class="summary__total"><strong>Total</strong> <span class="tag">Not accounted</span></div>
+
+            <label class="field">
+              <span>Discount Code</span>
+              <div class="row">
+                <input type="text" placeholder="Enter code" disabled>
+                <button class="btn" disabled>Apply</button>
+              </div>
+            </label>
+
+            <div class="alert">
+              You cannot make bookings or change existing bookings less than X business hours before start time.
+            </div>
+            <div class="alert">
+              You cannot make bookings for past dates.
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Footer Buttons -->
+      <footer class="bk-footer">
+        <button class="btn" data-close="true">Close</button>
+        <div class="spacer"></div>
+        <button class="btn" id="bk-prev" disabled>Prev</button>
+        <button class="btn btn--primary" id="bk-next">Next</button>
+      </footer>
+    </div>
+  </div>
+
+  <footer class="container">
+    <small>© 2025 University of Warwick (demo)</small>
+  </footer>
+
+  <!-- ✅ 预订保存逻辑：写入 WSU_BOOKINGS_<email>，与 Admin/Bookings 同步 -->
+  <script>
+  (function(){
+    const KEY_PREFIX = 'WSU_BOOKINGS_';
+
+    // —— 登录态工具 ——
+    function currentUser(){
+      return (window.WSU_AUTH && WSU_AUTH.getUser && WSU_AUTH.getUser())
+             || JSON.parse(localStorage.getItem('WSU_USER')||'null');
+    }
+    function requireLogin(){
+      const u = currentUser();
+      if(!u){
+        const to = new URL('/login', location.origin);
+        alert('Please login to make a booking.');
+        location.href = to.href;
+        return null;
+      }
+      return u;
+    }
+
+    // —— 预订存取（与 Admin/Bookings 保持一致） ——
+    function getUserBookings(email){
+      const key = KEY_PREFIX + email;
+      const raw = localStorage.getItem(key);
+      if(raw){ try{ return JSON.parse(raw); }catch{} }
+      const seed = [];
+      localStorage.setItem(key, JSON.stringify(seed));
+      return seed;
+    }
+    function setUserBookings(email, rows){
+      localStorage.setItem(KEY_PREFIX + email, JSON.stringify(rows));
+    }
+    function genId(){ return 'bk_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+
+    // —— DOM 引用 ——
+    const modal = document.getElementById('bookingModal');
+    const overlaySel = '[data-close="true"], .modal__overlay';
+    const openBtns = document.querySelectorAll('[data-open-book]');
+    const steps = [...modal.querySelectorAll('.bk-step')];
+    const stepper = [...modal.querySelectorAll('.stepper__item')];
+    const prevBtn = modal.querySelector('#bk-prev');
+    const nextBtn = modal.querySelector('#bk-next');
+    let step = 1;
+
+    // 预填 & 打开
+    openBtns.forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        e.preventDefault();
+
+        // 若未登录，先引导登录
+        if(!requireLogin()) return;
+
+        const room = btn.dataset.room || 'Room';
+        const loc  = btn.dataset.location || '';
+        const cap  = btn.dataset.capacity || '';
+        const start= btn.dataset.start || '';
+        const end  = btn.dataset.end || '';
+
+        // 填右侧摘要
+        modal.querySelector('#sum-room').textContent = room;
+        modal.querySelector('#sum-loc').textContent  = loc;
+        modal.querySelector('#sum-cap').textContent  = cap ? (cap+' seats') : '';
+        modal.querySelector('#sum-time').textContent = prettyTime(start,end);
+
+        // 左侧表单初值
+        const s = modal.querySelector('#bk-start');
+        const e2= modal.querySelector('#bk-end');
+        if(start) s.value = toLocal(start);
+        if(end)   e2.value = toLocal(end);
+
+        // 进入第 1 步并打开
+        goto(1);
+        open();
+      });
+    });
+
+    // 关闭
+    document.addEventListener('click', evt=>{
+      if(evt.target.closest(overlaySel) && modal.classList.contains('is-open')) close();
+    });
+    document.addEventListener('keydown', e=>{
+      if(e.key === 'Escape' && modal.classList.contains('is-open')) close();
+    });
+
+    // 步骤按钮
+    prevBtn.addEventListener('click', ()=> goto(step-1));
+    nextBtn.addEventListener('click', ()=>{
+      const u = requireLogin();
+      if(!u) return;
+
+      if(step===1){
+        modal.querySelector('#sum-time').textContent =
+          prettyTime(modal.querySelector('#bk-start').value, modal.querySelector('#bk-end').value);
+        goto(step+1);
+        return;
+      }
+
+      if(step===2){
+        goto(3);
+        // 刷新 Summary
+        modal.querySelector('#rv-room').textContent  =
+          modal.querySelector('#sum-room').textContent;
+        modal.querySelector('#rv-time').textContent  =
+          modal.querySelector('#sum-time').textContent;
+        modal.querySelector('#rv-title').textContent =
+          modal.querySelector('#bk-title-input').value || '(Untitled)';
+        modal.querySelector('#rv-user').textContent  =
+          (document.getElementById('acc-name').value || '-') + ' · ' +
+          (document.getElementById('acc-email').value || u.email);
+        modal.querySelector('#rv-notes').textContent =
+          document.getElementById('bk-notes').value || '-';
+        return;
+      }
+
+      if(step===3){
+        // —— 保存预订 —— 
+        const saved = saveCurrentBooking(u);
+        if(saved.ok){
+          close();
+          // 跳到 My Bookings 查看
+          location.href = '/bookings';
+        }else{
+          alert(saved.msg || 'Failed to submit.');
+        }
+      }
+    });
+
+    function open(){ modal.classList.add('is-open'); document.body.classList.add('no-scroll'); }
+    function close(){ modal.classList.remove('is-open'); document.body.classList.remove('no-scroll'); }
+
+    function goto(n){
+      step = Math.max(1, Math.min(3, n));
+      steps.forEach(s=> s.hidden = (s.dataset.step != step));
+      stepper.forEach(it=>{
+        it.classList.toggle('is-active', +it.dataset.stepI===step);
+      });
+      prevBtn.disabled = step===1;
+      nextBtn.textContent = step===3 ? 'Confirm' : 'Next';
+    }
+
+    // —— 把弹窗里当前表单保存为一条 booking —— 
+    function saveCurrentBooking(u){
+      const roomName = modal.querySelector('#sum-room').textContent.trim() || 'Room';
+      const loc = modal.querySelector('#sum-loc').textContent.trim();
+      const cap = modal.querySelector('#sum-cap').textContent.trim();
+      const title = (document.getElementById('bk-title-input').value || 'Untitled').trim();
+      const notes = (document.getElementById('bk-notes').value || '').trim();
+
+      const startLocal = document.getElementById('bk-start').value; // 'YYYY-MM-DDTHH:MM'
+      const endLocal   = document.getElementById('bk-end').value;
+
+      if(!startLocal || !endLocal){
+        return { ok:false, msg:'Please select start and end time.' };
+      }
+      const startDate = new Date(startLocal);
+      const endDate   = new Date(endLocal);
+      if(isNaN(+startDate) || isNaN(+endDate)){
+        return { ok:false, msg:'Invalid time.' };
+      }
+      if(endDate <= startDate){
+        return { ok:false, msg:'End time must be after start time.' };
+      }
+      const nowRounded = new Date(); nowRounded.setSeconds(0,0);
+      if(startDate <= nowRounded){
+        return { ok:false, msg:'Start time must be in the future.' };
+      }
+
+      const booking = {
+        id: genId(),
+        room: roomName,
+        date: startLocal.slice(0,10),   // 'YYYY-MM-DD'
+        start: startLocal.slice(11,16), // 'HH:MM'
+        end: endLocal.slice(11,16),
+        purpose: title,
+        status: 'pending',
+        notes,
+        location: loc,
+        capacity: cap
+      };
+
+      const list = getUserBookings(u.email);
+      list.push(booking);
+      setUserBookings(u.email, list);
+      return { ok:true, booking };
+    }
+
+    // —— 工具 —— 
+    function prettyTime(start,end){
+      if(!start || !end) return '--';
+      const s=new Date(start), e=new Date(end);
+      return s.toLocaleString([], { dateStyle:'medium', timeStyle:'short' }) +
+             ' → ' +
+             e.toLocaleTimeString([], { timeStyle:'short' });
+    }
+    function toLocal(isoOrLocal){
+      const d = new Date(isoOrLocal);
+      d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+      return d.toISOString().slice(0,16);
+    }
+  })();
+  </script>
+</body>
+</html>
