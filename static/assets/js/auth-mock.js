@@ -15,7 +15,7 @@
     document.dispatchEvent(new Event('wsu-logout'));
   }
 
-// 导航显隐：根据 data-auth="guest"/"user" 切换 + 按角色显隐
+// 导航显隐：根据 data-auth="guest""user" 切换 + 按角色显隐
 function applyNav() {
   const user = getUser();
 

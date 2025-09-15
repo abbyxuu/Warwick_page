@@ -37,21 +37,21 @@
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="/">
+      <a class="brand" href="">
         <img src="static/images/warwick-logo.png" alt="Warwick" width="160">
       </a>
       <nav class="nav-center">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/rooms" class="nav-link">Room</a>
-        <a href="/schedule" class="nav-link">Schedule</a>
-        <a href="/bookings" class="nav-link">My Booking</a>
-        <a href="/admin" class="nav-link" data-role="admin" style="display:none;">Admin</a>
+        <a href="" class="nav-link">Home</a>
+        <a href="rooms" class="nav-link">Room</a>
+        <a href="schedule" class="nav-link">Schedule</a>
+        <a href="bookings" class="nav-link">My Booking</a>
+        <a href="admin" class="nav-link" data-role="admin" style="display:none;">Admin</a>
 
       </nav>
       <nav class="nav-right">
         <!-- 未登录可见 -->
-        <a href="/login" class="nav-link" data-auth="guest">Login</a>
-        <a href="/register" class="nav-link" data-auth="guest">Sign Up</a>
+        <a href="login" class="nav-link" data-auth="guest">Login</a>
+        <a href="register" class="nav-link" data-auth="guest">Sign Up</a>
         <!-- 登录后可见 -->
         <span class="nav-link" id="navUser" data-auth="user" style="pointer-events:none;"></span>
         <a href="#" class="nav-link" id="logoutBtn" data-auth="user">Logout</a>
@@ -81,7 +81,7 @@
 
       <div class="row-between">
         <label class="checkbox"><input type="checkbox" id="remember"> Remember me</label>
-        <a class="muted" href="/forgot">Forgot password?</a>
+        <a class="muted" href="forgot">Forgot password?</a>
       </div>
 
       <div class="error" id="errorBox">Invalid email or password.</div>
@@ -89,7 +89,7 @@
       <button class="btn btn--primary" type="submit">Login</button>
 
       <div class="auth-footer">
-        No account? <a href="/register">Create one</a>
+        No account? <a href="register">Create one</a>
       </div>
     </form>
   </main>

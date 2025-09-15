@@ -31,21 +31,21 @@
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="/">
+      <a class="brand" href="">
         <img src="static/images/warwick-logo.png" alt="Warwick" width="160">
       </a>
       <nav class="nav-center">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/rooms" class="nav-link">Room</a>
-        <a href="/schedule" class="nav-link">Schedule</a>
-        <a href="/bookings" class="nav-link is-active">My Booking</a>
-        <a href="/admin" class="nav-link" data-role="admin" style="display:none;">Admin</a>
+        <a href="" class="nav-link">Home</a>
+        <a href="rooms" class="nav-link">Room</a>
+        <a href="schedule" class="nav-link">Schedule</a>
+        <a href="bookings" class="nav-link is-active">My Booking</a>
+        <a href="admin" class="nav-link" data-role="admin" style="display:none;">Admin</a>
 
       </nav>
       <nav class="nav-right">
         <!-- 未登录 -->
-        <a href="/login" class="nav-link" data-auth="guest">Login</a>
-        <a href="/register" class="nav-link" data-auth="guest">Sign Up</a>
+        <a href="login" class="nav-link" data-auth="guest">Login</a>
+        <a href="register" class="nav-link" data-auth="guest">Sign Up</a>
         <!-- 已登录 -->
         <span class="nav-link" id="navUser" data-auth="user" style="pointer-events:none;"></span>
         <a href="#" class="nav-link" id="logoutBtn" data-auth="user">Logout</a>
@@ -60,8 +60,8 @@
     <section id="guestBlock" class="card" style="display:none;">
       <p class="muted">You’re not logged in.</p>
       <div class="actions">
-        <a href="/login" class="btn btn--primary">Login</a>
-        <a href="/register" class="btn">Create account</a>
+        <a href="login" class="btn btn--primary">Login</a>
+        <a href="register" class="btn">Create account</a>
       </div>
     </section>
 
@@ -73,8 +73,8 @@
           <div class="muted" id="clubLine"></div>
         </div>
         <div class="actions">
-          <a class="btn" href="/rooms">Book a room</a>
-          <a class="btn" href="/schedule">View timetable</a>
+          <a class="btn" href="rooms">Book a room</a>
+          <a class="btn" href="schedule">View timetable</a>
         </div>
       </div>
 

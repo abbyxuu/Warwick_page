@@ -13,24 +13,24 @@
   <!-- Header / Nav -->
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="/">
+      <a class="brand" href="">
         <img src="static/images/warwick-logo.png" alt="Warwick" width="180">
       </a>
 
       <!-- 中间导航（居中） -->
       <nav class="nav-center">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/rooms" class="nav-link is-active">Room</a> <!-- 当前页面高亮 -->
-        <a href="/schedule" class="nav-link">Schedule</a>
-        <a href="/bookings" class="nav-link">My Booking</a>
-        <a href="/admin" class="nav-link" data-role="admin" style="display:none;">Admin</a>
+        <a href="" class="nav-link">Home</a>
+        <a href="rooms" class="nav-link is-active">Room</a> <!-- 当前页面高亮 -->
+        <a href="schedule" class="nav-link">Schedule</a>
+        <a href="bookings" class="nav-link">My Booking</a>
+        <a href="admin" class="nav-link" data-role="admin" style="display:none;">Admin</a>
       </nav>
 
       <!-- 右侧动作 -->
       <nav class="nav-right">
         <!-- 未登录可见 -->
-        <a href="/login" class="nav-link" data-auth="guest">Login</a>
-        <a href="/register" class="nav-link" data-auth="guest">Sign Up</a>
+        <a href="login" class="nav-link" data-auth="guest">Login</a>
+        <a href="register" class="nav-link" data-auth="guest">Sign Up</a>
         <!-- 登录后可见 -->
         <span class="nav-link" id="navUser" data-auth="user" style="pointer-events:none;"></span>
         <a href="#" class="nav-link" id="logoutBtn" data-auth="user">Logout</a>

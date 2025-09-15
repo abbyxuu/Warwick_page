@@ -27,17 +27,17 @@
 <body>
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="/">Warwick</a>
+      <a class="brand" href="">Warwick</a>
       <nav class="nav-center">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/rooms">Room</a>
-        <a class="nav-link" href="/schedule">Schedule</a>
-        <a class="nav-link" href="/bookings">My Booking</a>
-        <a class="nav-link" href="/admin" data-role="admin" style="display:none;">Admin</a>
+        <a class="nav-link" href="">Home</a>
+        <a class="nav-link" href="rooms">Room</a>
+        <a class="nav-link" href="schedule">Schedule</a>
+        <a class="nav-link" href="bookings">My Booking</a>
+        <a class="nav-link" href="admin" data-role="admin" style="display:none;">Admin</a>
       </nav>
       <nav class="nav-right">
-        <a href="/login" class="nav-link" data-auth="guest">Login</a>
-        <a href="/register" class="nav-link" data-auth="guest">Sign Up</a>
+        <a href="login" class="nav-link" data-auth="guest">Login</a>
+        <a href="register" class="nav-link" data-auth="guest">Sign Up</a>
         <span class="nav-link" id="navUser" data-auth="user" style="pointer-events:none;"></span>
         <a href="#" class="nav-link" id="logoutBtn" data-auth="user">Logout</a>
       </nav>
