@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Warwick SU - Schedule</title>
+
+  <link rel="stylesheet" href="/static/assets/css/style.css">
+  <script src="/static/assets/js/auth-mock.js" defer></script>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <img src="/static/images/warwick-logo.png" alt="test logo" width="180">
+      </a>
+      <nav class="nav-center">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/rooms" class="nav-link">Room</a>
+        <a href="/schedule" class="nav-link is-active">Schedule</a>
+        <a href="/bookings" class="nav-link">My Booking</a>
+        <a href="/admin" class="nav-link" data-role="admin" style="display:none;">Admin</a>
+
+      </nav>
+      <nav class="nav-right">
+        <!-- 未登录可见 -->
+        <a href="/login" class="nav-link" data-auth="guest">Login</a>
+        <a href="/register" class="nav-link" data-auth="guest">Sign Up</a>
+        <!-- 登录后可见 -->
+        <span class="nav-link" id="navUser" data-auth="user" style="pointer-events:none;"></span>
+        <a href="#" class="nav-link" id="logoutBtn" data-auth="user">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Daily Schedule</h1>
+
+    <!-- 过滤条 -->
+    <form class="form form--inline">
+      <label>Date <input type="date"></label>
+      <button class="btn btn--primary" type="submit">Go</button>
+    </form>
+
+    <!-- 三列网格 -->
+    <section class="schedule-grid">
+      <!-- Card 1 -->
+      <article class="schedule-card">
+        <img src="/static/images/room-101.jpg" alt="SU-101" class="schedule-thumb">
+        <h3>SU-101 — Up to 4 People</h3>
+        <p class="meta">SU Building · 1F · Capacity 30</p>
+
+        <ul class="slots">
+          <li class="slot is-available">
+            <span class="slot-time">09:00–10:00</span>
+            <a class="slot-btn" href="#"
+               data-open-book
+               data-room="SU-101"
+               data-capacity="30"
+               data-location="SU Building · 1F"
+               data-start="2025-09-06T09:00"
+               data-end="2025-09-06T10:00">Book</a>
+          </li>
+          <li class="slot is-booked">
+            <span class="slot-time">10:00–11:00</span>
+            <button class="slot-btn" disabled>Booked</button>
+          </li>
+          <li class="slot is-available">
+            <span class="slot-time">11:00–12:00</span>
+            <a class="slot-btn" href="#"
+               data-open-book
+               data-room="SU-101"
+               data-capacity="30"
+               data-location="SU Building · 1F"
+               data-start="2025-09-06T11:00"
+               data-end="2025-09-06T12:00">Book</a>
+          </li>
+          <li class="slot is-busy">
+            <span class="slot-time">12:00–13:00</span>
+            <button class="slot-btn" disabled>Busy</button>
+          </li>
+        </ul>
+
+        <div class="room-card__actions" style="margin-top:10px">
+          <a class="btn btn--primary"
+             href="#"
+             data-open-book
+             data-room="SU-101"
+             data-capacity="30"
+             data-location="SU Building · 1F"
+             data-start="2025-09-06T09:00"
+             data-end="2025-09-06T10:00">Quick Book</a>
+          <a class="btn" href="#room101" data-modal="#room101">View Details</a>
+          
+          <span class="btn" data-role="!exec" title="Only Exec can book">View only</span>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="schedule-card">
+        <img src="/static/images/room-102.jpg" alt="SU-102" class="schedule-thumb">
+        <h3>SU-102 — Up to 6 People</h3>
+        <p class="meta">SU Building · 1F · Capacity 25</p>
+        <ul class="slots">
+          <li class="slot is-booked"><span class="slot-time">09:00–10:00</span><button class="slot-btn" disabled>Booked</button></li>
+          <li class="slot is-available"><span class="slot-time">10:00–11:00</span>
+            <a class="slot-btn" href="#"
+               data-open-book
+               data-room="SU-102"
+               data-capacity="25"
+               data-location="SU Building · 1F"
+               data-start="2025-09-06T10:00"
+               data-end="2025-09-06T11:00">Book</a></li>
+          <li class="slot is-available"><span class="slot-time">11:00–12:00</span>
+            <a class="slot-btn" href="#"
+               data-open-book
+               data-room="SU-102"
+               data-capacity="25"
+               data-location="SU Building · 1F"
+               data-start="2025-09-06T11:00"
+               data-end="2025-09-06T12:00">Book</a></li>
+        </ul>
+        <div class="room-card__actions" style="margin-top:10px">
+          <a class="btn btn--primary" href="#"
+             data-open-book
+             data-room="SU-102"
+             data-capacity="25"
+             data-location="SU Building · 1F"
+             data-start="2025-09-06T09:00"
+             data-end="2025-09-06T10:00">Quick Book</a>
+          <a class="btn" href="#room102" data-modal="#room102">View Details</a>
+        
+          <span class="btn" data-role="!exec" title="Only Exec can book">View only</span>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="schedule-card">
+        <img src="/static/images/room-103.jpg" alt="SU-103" class="schedule-thumb">
+        <h3>SU-103 — Up to 6 People</h3>
+        <p class="meta">Annex · 2F · Capacity 40</p>
+        <ul class="slots">
+          <li class="slot is-available"><span class="slot-time">09:00–10:00</span>
+            <a class="slot-btn" href="#"
+               data-open-book
+               data-room="SU-103"
+               data-capacity="40"
+               data-location="Annex · 2F"
+               data-start="2025-09-06T09:00"
+               data-end="2025-09-06T10:00">Book</a></li>
+          <li class="slot is-busy"><span class="slot-time">10:00–11:00</span><button class="slot-btn" disabled>Busy</button></li>
+          <li class="slot is-available"><span class="slot-time">11:00–12:00</span>
+            <a class="slot-btn" href="#"
+               data-open-book
+               data-room="SU-103"
+               data-capacity="40"
+               data-location="Annex · 2F"
+               data-start="2025-09-06T11:00"
+               data-end="2025-09-06T12:00">Book</a></li>
+        </ul>
+        <div class="room-card__actions" style="margin-top:10px">
+          <a class="btn btn--primary" href="#"
+             data-open-book
+             data-room="SU-103"
+             data-capacity="40"
+             data-location="Annex · 2F"
+             data-start="2025-09-06T09:00"
+             data-end="2025-09-06T10:00">Quick Book</a>
+          <a class="btn" href="#room103" data-modal="#room103">View Details</a>
+          
+          <span class="btn" data-role="!exec" title="Only Exec can book">View only</span>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="schedule-card">
+        <img src="/static/images/room-104.jpg" alt="SU-104" class="schedule-thumb">
+        <h3>SU-104 — Up to 8 People</h3>
+        <p class="meta">Annex · 2F · Capacity 50</p>
+        <ul class="slots">
+          <li class="slot is-booked"><span class="slot-time">09:00–10:00</span><button class="slot-btn" disabled>Booked</button></li>
+          <li class="slot is-booked"><span class="slot-time">10:00–11:00</span><button class="slot-btn" disabled>Booked</button></li>
+          <li class="slot is-available"><span class="slot-time">11:00–12:00</span>
+            <a class="slot-btn" href="#"
+               data-open-book
+               data-room="SU-104"
+               data-capacity="50"
+               data-location="Annex · 2F"
+               data-start="2025-09-06T11:00"
+               data-end="2025-09-06T12:00">Book</a></li>
+        </ul>
+        <div class="room-card__actions" style="margin-top:10px">
+          <a class="btn btn--primary" href="#"
+             data-open-book
+             data-room="SU-104"
+             data-capacity="50"
+             data-location="Annex · 2F"
+             data-start="2025-09-06T11:00"
+             data-end="2025-09-06T12:00">Quick Book</a>
+          <a class="btn" href="#room104" data-modal="#room104">View Details</a>
+         
+          <span class="btn" data-role="!exec" title="Only Exec can book">View only</span>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="schedule-card">
+        <img src="/static/images/room-105.jpg" alt="SU-105" class="schedule-thumb">
+        <h3>SU-105 — Up to 4 People</h3>
+        <p class="meta">Main Building · 3F · Capacity 20</p>
+        <ul class="slots">
+          <li class="slot is-available"><span class="slot-time">09:00–10:00</span>
+            <a class="slot-btn" href="#"
+               data-open-book
+               data-room="SU-105"
+               data-capacity="20"
+               data-location="Main Building · 3F"
+               data-start="2025-09-06T09:00"
+               data-end="2025-09-06T10:00">Book</a></li>
+          <li class="slot is-busy"><span class="slot-time">10:00–11:00</span><button class="slot-btn" disabled>Busy</button></li>
+          <li class="slot is-available"><span class="slot-time">11:00–12:00</span>
+            <a class="slot-btn" href="#"
+               data-open-book
+               data-room="SU-105"
+               data-capacity="20"
+               data-location="Main Building · 3F"
+               data-start="2025-09-06T11:00"
+               data-end="2025-09-06T12:00">Book</a></li>
+        </ul>
+        <div class="room-card__actions" style="margin-top:10px">
+          <a class="btn btn--primary" href="#"
+             data-open-book
+             data-room="SU-105"
+             data-capacity="20"
+             data-location="Main Building · 3F"
+             data-start="2025-09-06T09:00"
+             data-end="2025-09-06T10:00">Quick Book</a>
+          <a class="btn" href="#room105" data-modal="#room105">View Details</a>
+      
+          <span class="btn" data-role="!exec" title="Only Exec can book">View only</span>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="schedule-card">
+        <img src="/static/images/room-106.jpg" alt="SU-106" class="schedule-thumb">
+        <h3>SU-106 — Up to 6 People</h3>
+        <p class="meta">Main Building · 3F · Capacity 35</p>
+        <ul class="slots">
+          <li class="slot is-booked"><span class="slot-time">09:00–10:00</span><button class="slot-btn" disabled>Booked</button></li>
+          <li class="slot is-available"><span class="slot-time">10:00–11:00</span>
+            <a class="slot-btn" href="#"
+               data-open-book
+               data-room="SU-106"
+               data-capacity="35"
+               data-location="Main Building · 3F"
+               data-start="2025-09-06T10:00"
+               data-end="2025-09-06T11:00">Book</a></li>
+          <li class="slot is-available"><span class="slot-time">11:00–12:00</span>
+            <a class="slot-btn" href="#"
+               data-open-book
+               data-room="SU-106"
+               data-capacity="35"
+               data-location="Main Building · 3F"
+               data-start="2025-09-06T11:00"
+               data-end="2025-09-06T12:00">Book</a></li>
+        </ul>
+        <div class="room-card__actions" style="margin-top:10px">
+          <a class="btn btn--primary" href="#"
+             data-open-book
+             data-room="SU-106"
+             data-capacity="35"
+             data-location="Main Building · 3F"
+             data-start="2025-09-06T10:00"
+             data-end="2025-09-06T11:00">Quick Book</a>
+          <a class="btn" href="#room106" data-modal="#room106">View Details</a>
+          
+          <span class="btn" data-role="!exec" title="Only Exec can book">View only</span>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- ===== Booking Modal ===== -->
+  <div class="modal modal--wide" id="bookingModal" aria-hidden="true" role="dialog" aria-labelledby="bk-title">
+    <div class="modal__overlay" data-close="true"></div>
+
+    <div class="modal__dialog" role="document">
+      <button class="modal__close" aria-label="Close" data-close="true">×</button>
+
+      <!-- 步骤条 -->
+      <header class="stepper">
+        <div class="stepper__item is-active" data-step-i="1"><span>1</span> Booking</div>
+        <div class="stepper__item" data-step-i="2"><span>2</span> Create Account</div>
+        <div class="stepper__item" data-step-i="3"><span>3</span> Summary</div>
+      </header>
+
+      <!-- 内容两列：左主内容 + 右侧摘要 -->
+      <div class="bk-grid">
+        <!-- 左侧：步骤内容 -->
+        <section class="bk-main">
+          <!-- Step 1 -->
+          <div class="bk-step" data-step="1">
+            <h2 id="bk-title">Booking Setup</h2>
+
+            <details open class="bk-card">
+              <summary>General</summary>
+              <div class="bk-card__body">
+                <label class="field">
+                  <span>Title</span>
+                  <input id="bk-title-input" type="text" placeholder="Add title…">
+                </label>
+
+                <div class="field-row">
+                  <label class="field">
+                    <span>Start</span>
+                    <input id="bk-start" type="datetime-local">
+                  </label>
+                  <label class="field">
+                    <span>End</span>
+                    <input id="bk-end" type="datetime-local">
+                  </label>
+                </div>
+
+                <label class="field field--checkbox">
+                  <input id="bk-all-day" type="checkbox"> <span>All day</span>
+                </label>
+              </div>
+            </details>
+
+            <details class="bk-card">
+              <summary>Description</summary>
+              <div class="bk-card__body">
+                <textarea id="bk-notes" rows="4" placeholder="Purpose, special needs…"></textarea>
+              </div>
+            </details>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bk-step" data-step="2" hidden>
+            <h2>Create Account</h2>
+            <div class="bk-card bk-card__body">
+              <div class="field-row">
+                <label class="field">
+                  <span>Full name</span>
+                  <input id="acc-name" type="text" placeholder="Your name">
+                </label>
+                <label class="field">
+                  <span>Email</span>
+                  <input id="acc-email" type="email" placeholder="you@warwick.ac.uk">
+                </label>
+              </div>
+              <label class="field">
+                <span>Club / Society</span>
+                <input id="acc-club" type="text" placeholder="e.g. Photography Society">
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bk-step" data-step="3" hidden>
+            <h2>Review & Submit</h2>
+            <div class="bk-card bk-card__body">
+              <ul class="review">
+                <li><strong>Room:</strong> <span id="rv-room"></span></li>
+                <li><strong>When:</strong> <span id="rv-time"></span></li>
+                <li><strong>Title:</strong> <span id="rv-title"></span></li>
+                <li><strong>Contact:</strong> <span id="rv-user"></span></li>
+                <li><strong>Notes:</strong> <span id="rv-notes"></span></li>
+              </ul>
+              <p class="muted">* Demo UI only. In production this will submit to backend.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 右侧：摘要 -->
+        <aside class="bk-side">
+          <div class="summary">
+            <h3>Booking Summary</h3>
+            <div class="summary__room">
+              <div class="name" id="sum-room">Room</div>
+              <div class="meta"><span id="sum-loc">Location</span> · <span id="sum-cap">0 seats</span></div>
+            </div>
+            <div class="summary__time" id="sum-time">--</div>
+            <div class="summary__total"><strong>Total</strong> <span class="tag">Not accounted</span></div>
+
+            <label class="field">
+              <span>Discount Code</span>
+              <div class="row">
+                <input type="text" placeholder="Enter code" disabled>
+                <button class="btn" disabled>Apply</button>
+              </div>
+            </label>
+
+            <div class="alert">
+              You cannot make bookings or change existing bookings less than X business hours before start time.
+            </div>
+            <div class="alert">
+              You cannot make bookings for past dates.
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- 底部按钮 -->
+      <footer class="bk-footer">
+        <button class="btn" data-close="true">Close</button>
+        <div class="spacer"></div>
+        <button class="btn" id="bk-prev" disabled>Prev</button>
+        <button class="btn btn--primary" id="bk-next">Next</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ===== 房间详情弹窗（示例：101/102/103） ===== -->
+  <div class="modal" id="room101" aria-hidden="true" role="dialog" aria-labelledby="room101-title">
+    <div class="modal__overlay" data-close="true"></div>
+    <div class="modal__dialog" role="document">
+      <button class="modal__close" aria-label="Close" data-close="true">×</button>
+
+      <img src="/static/images/room-101.jpg" alt="Room SU-101" class="modal__hero">
+      <h2 id="room101-title" class="modal__title">SU-101 — Up to 4 People</h2>
+
+      <div class="modal__meta">
+        <span>1F</span> • <span>Capacity 30</span> • <span>9 hours/day</span>
+      </div>
+
+      <ul class="modal__features">
+        <li>Wi-Fi</li><li>HDMI & Clickshare</li><li>Video conferencing</li>
+        <li>Air conditioning</li><li>Tea & coffee</li><li>65" interactive display</li>
+      </ul>
+
+      <details class="modal__section">
+        <summary>Booking Permission</summary>
+        <div class="modal__section-body">Only executive members can reserve this room.
+          General members may view availability but cannot book.
+          Need access? Contact your society admin.</div>
+      </details>
+
+      <details class="modal__section">
+        <summary>Cancellation Policy</summary>
+        <div class="modal__section-body">Free cancellation up to 24h.</div>
+      </details>
+
+      <div class="modal__actions">
+        <a href="#book" class="btn btn--primary">Book Now</a>
+        <button class="btn" data-close="true">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="room102" aria-hidden="true" role="dialog" aria-labelledby="room102-title">
+    <div class="modal__overlay" data-close="true"></div>
+    <div class="modal__dialog" role="document">
+      <button class="modal__close" aria-label="Close" data-close="true">×</button>
+
+      <img src="/static/images/room-102.jpg" alt="Room SU-102" class="modal__hero">
+      <h2 id="room102-title" class="modal__title">SU-102 — Up to 6 People</h2>
+
+      <div class="modal__meta">
+        <span>1F</span> • <span>Capacity 25</span> • <span>9 hours/day</span>
+      </div>
+
+      <ul class="modal__features">
+        <li>Wi-Fi</li><li>HDMI & Clickshare</li><li>Video conferencing</li>
+        <li>Air conditioning</li><li>Tea & coffee</li><li>65" interactive display</li>
+      </ul>
+
+      <details class="modal__section">
+        <summary>Booking Permission</summary>
+        <div class="modal__section-body">Only executive members can reserve this room.
+          General members may view availability but cannot book.
+          Need access? Contact your society admin.</div>
+      </details>
+
+      <details class="modal__section">
+        <summary>Cancellation Policy</summary>
+        <div class="modal__section-body">Free cancellation up to 24h.</div>
+      </details>
+
+      <div class="modal__actions">
+        <a href="#book" class="btn btn--primary">Book Now</a>
+        <button class="btn" data-close="true">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="room103" aria-hidden="true" role="dialog" aria-labelledby="room103-title">
+    <div class="modal__overlay" data-close="true"></div>
+    <div class="modal__dialog" role="document">
+      <button class="modal__close" aria-label="Close" data-close="true">×</button>
+
+      <img src="/static/images/room-103.jpg" alt="Room SU-103" class="modal__hero">
+      <h2 id="room103-title" class="modal__title">SU-103 — Up to 6 People</h2>
+
+      <div class="modal__meta">
+        <span>2F</span> • <span>Capacity 40</span> • <span>9 hours/day</span>
+      </div>
+
+      <ul class="modal__features">
+        <li>Wi-Fi</li><li>HDMI & Clickshare</li><li>Video conferencing</li>
+        <li>Air conditioning</li><li>Tea & coffee</li><li>65" interactive display</li>
+      </ul>
+
+      <details class="modal__section">
+        <summary>Booking Permission</summary>
+        <div class="modal__section-body">Only executive members can reserve this room.
+          General members may view availability but cannot book.
+          Need access? Contact your society admin.</div>
+      </details>
+
+      <details class="modal__section">
+        <summary>Cancellation Policy</summary>
+        <div class="modal__section-body">Free cancellation up to 24h.</div>
+      </details>
+
+      <div class="modal__actions">
+        <a href="#book" class="btn btn--primary">Book Now</a>
+        <button class="btn" data-close="true">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container">
+    <small>© 2025 University of Warwick (demo)</small>
+  </footer>
+
+  <!-- 简单的弹窗控制（房间详情弹窗，不是预订弹窗） -->
+  <script>
+    (function(){
+      const openBtns = document.querySelectorAll('[data-modal]');
+      const closeSel = '[data-close="true"], .modal__overlay';
+      let activeModal = null;
+
+      function openModal(target){
+        const el = document.querySelector(target);
+        if(!el) return;
+        el.classList.add('is-open');
+        document.body.classList.add('no-scroll');
+        activeModal = el;
+        el.querySelector('.modal__dialog')?.focus?.();
+      }
+      function closeModal(){
+        if(!activeModal) return;
+        activeModal.classList.remove('is-open');
+        document.body.classList.remove('no-scroll');
+        activeModal = null;
+      }
+
+      openBtns.forEach(btn=>{
+        btn.addEventListener('click', e=>{
+          e.preventDefault();
+          openModal(btn.getAttribute('data-modal'));
+        });
+      });
+
+      document.addEventListener('click', e=>{
+        if(e.target.matches(closeSel)){ closeModal(); }
+      });
+      document.addEventListener('keydown', e=>{
+        if(e.key === 'Escape'){ closeModal(); }
+      });
+    })();
+
+    // 点击可用时间槽时的视觉反馈
+    document.addEventListener('click', e=>{
+      const li = e.target.closest('.slot.is-available');
+      if(li && !e.target.classList.contains('slot-btn')){
+        document.querySelectorAll('.slot.is-available.selected')
+          .forEach(x=>x.classList.remove('selected'));
+        li.classList.add('selected');
+      }
+    });
+  </script>
+
+  <!-- 预订弹窗逻辑（Quick Book / slot Book 按钮使用） -->
+  <script>
+    (function(){
+      const modal   = document.getElementById('bookingModal');
+      const openBtns= document.querySelectorAll('[data-open-book]'); // 触发按钮
+      const steps   = [...modal.querySelectorAll('.bk-step')];
+      const stepper = [...modal.querySelectorAll('.stepper__item')];
+      const prevBtn = modal.querySelector('#bk-prev');
+      const nextBtn = modal.querySelector('#bk-next');
+      const closeSel= '[data-close="true"], .modal__overlay';
+
+      let step = 1;
+
+      // 打开并预填
+      openBtns.forEach(btn=>{
+        btn.addEventListener('click', (e)=>{
+          e.preventDefault();
+          const room  = btn.dataset.room || 'Room';
+          const loc   = btn.dataset.location || '';
+          const cap   = btn.dataset.capacity || '';
+          const start = btn.dataset.start || '';
+          const end   = btn.dataset.end || '';
+
+          modal.querySelector('#sum-room').textContent = room;
+          modal.querySelector('#sum-loc').textContent  = loc;
+          modal.querySelector('#sum-cap').textContent  = cap ? (cap + ' seats') : '';
+          modal.querySelector('#sum-time').textContent = prettyTime(start,end);
+
+          const s = modal.querySelector('#bk-start');
+          const e2= modal.querySelector('#bk-end');
+          if(start) s.value = toLocal(start);
+          if(end)   e2.value = toLocal(end);
+
+          goto(1);
+          open();
+        });
+      });
+
+      // 关闭：遮罩 / Close / ESC
+      document.addEventListener('click', evt=>{
+        if(evt.target.closest(closeSel) && modal.classList.contains('is-open')) close();
+      });
+      document.addEventListener('keydown', evt=>{
+        if(evt.key === 'Escape' && modal.classList.contains('is-open')) close();
+      });
+
+      // 步骤切换
+      prevBtn.addEventListener('click', ()=> goto(step-1));
+      nextBtn.addEventListener('click', ()=>{
+        if(step===1){
+          modal.querySelector('#sum-time').textContent =
+            prettyTime(modal.querySelector('#bk-start').value, modal.querySelector('#bk-end').value);
+        }
+        if(step<3){ goto(step+1); }
+        else {
+          alert('Submitted (demo).');
+          close();
+        }
+      });
+
+      function open(){ modal.classList.add('is-open'); document.body.classList.add('no-scroll'); }
+      function close(){ modal.classList.remove('is-open'); document.body.classList.remove('no-scroll'); }
+
+      function goto(n){
+        step = Math.max(1, Math.min(3, n));
+        steps.forEach(s=> s.hidden = (s.dataset.step != step));
+        stepper.forEach(it=> it.classList.toggle('is-active', +it.dataset.stepI===step));
+        prevBtn.disabled = step===1;
+        nextBtn.textContent = step===3 ? 'Confirm' : 'Next';
+
+        if(step===3){
+          modal.querySelector('#rv-room').textContent =
+            modal.querySelector('#sum-room').textContent;
+          modal.querySelector('#rv-time').textContent =
+            modal.querySelector('#sum-time').textContent;
+          modal.querySelector('#rv-title').textContent =
+            modal.querySelector('#bk-title-input').value || '(Untitled)';
+          modal.querySelector('#rv-user').textContent  =
+            (document.getElementById('acc-name').value || '-') + ' · ' +
+            (document.getElementById('acc-email').value || '-');
+          modal.querySelector('#rv-notes').textContent =
+            document.getElementById('bk-notes').value || '-';
+        }
+      }
+
+      // 工具
+      function prettyTime(start,end){
+        if(!start || !end) return '--';
+        const s = new Date(start), e = new Date(end);
+        return s.toLocaleString([], { dateStyle:'medium', timeStyle:'short' }) +
+               ' → ' + e.toLocaleTimeString([], { timeStyle:'short' });
+      }
+      function toLocal(iso){
+        const d = new Date(iso);
+        d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+        return d.toISOString().slice(0,16);
+      }
+    })();
+  </script>
+</body>
+</html>
