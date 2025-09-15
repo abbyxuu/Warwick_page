@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Warwick SU - Schedule</title>
 
-  <link rel="stylesheet" href="/static/assets/css/style.css">
-  <script src="/static/assets/js/auth-mock.js" defer></script>
+  <link rel="stylesheet" href="static/assets/css/style.css">
+  <script src="static/assets/js/auth-mock.js" defer></script>
 </head>
 <body>
   <!-- Header / Nav -->
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="/">
-        <img src="/static/images/warwick-logo.png" alt="test logo" width="180">
+        <img src="static/images/warwick-logo.png" alt="test logo" width="180">
       </a>
       <nav class="nav-center">
         <a href="/" class="nav-link">Home</a>
@@ -47,7 +47,7 @@
     <section class="schedule-grid">
       <!-- Card 1 -->
       <article class="schedule-card">
-        <img src="/static/images/room-101.jpg" alt="SU-101" class="schedule-thumb">
+        <img src="static/images/room-101.jpg" alt="SU-101" class="schedule-thumb">
         <h3>SU-101 — Up to 4 People</h3>
         <p class="meta">SU Building · 1F · Capacity 30</p>
 
@@ -99,7 +99,7 @@
 
       <!-- Card 2 -->
       <article class="schedule-card">
-        <img src="/static/images/room-102.jpg" alt="SU-102" class="schedule-thumb">
+        <img src="static/images/room-102.jpg" alt="SU-102" class="schedule-thumb">
         <h3>SU-102 — Up to 6 People</h3>
         <p class="meta">SU Building · 1F · Capacity 25</p>
         <ul class="slots">
@@ -137,7 +137,7 @@
 
       <!-- Card 3 -->
       <article class="schedule-card">
-        <img src="/static/images/room-103.jpg" alt="SU-103" class="schedule-thumb">
+        <img src="static/images/room-103.jpg" alt="SU-103" class="schedule-thumb">
         <h3>SU-103 — Up to 6 People</h3>
         <p class="meta">Annex · 2F · Capacity 40</p>
         <ul class="slots">
@@ -175,7 +175,7 @@
 
       <!-- Card 4 -->
       <article class="schedule-card">
-        <img src="/static/images/room-104.jpg" alt="SU-104" class="schedule-thumb">
+        <img src="static/images/room-104.jpg" alt="SU-104" class="schedule-thumb">
         <h3>SU-104 — Up to 8 People</h3>
         <p class="meta">Annex · 2F · Capacity 50</p>
         <ul class="slots">
@@ -206,7 +206,7 @@
 
       <!-- Card 5 -->
       <article class="schedule-card">
-        <img src="/static/images/room-105.jpg" alt="SU-105" class="schedule-thumb">
+        <img src="static/images/room-105.jpg" alt="SU-105" class="schedule-thumb">
         <h3>SU-105 — Up to 4 People</h3>
         <p class="meta">Main Building · 3F · Capacity 20</p>
         <ul class="slots">
@@ -244,7 +244,7 @@
 
       <!-- Card 6 -->
       <article class="schedule-card">
-        <img src="/static/images/room-106.jpg" alt="SU-106" class="schedule-thumb">
+        <img src="static/images/room-106.jpg" alt="SU-106" class="schedule-thumb">
         <h3>SU-106 — Up to 6 People</h3>
         <p class="meta">Main Building · 3F · Capacity 35</p>
         <ul class="slots">
@@ -419,7 +419,7 @@
     <div class="modal__dialog" role="document">
       <button class="modal__close" aria-label="Close" data-close="true">×</button>
 
-      <img src="/static/images/room-101.jpg" alt="Room SU-101" class="modal__hero">
+      <img src="static/images/room-101.jpg" alt="Room SU-101" class="modal__hero">
       <h2 id="room101-title" class="modal__title">SU-101 — Up to 4 People</h2>
 
       <div class="modal__meta">
@@ -455,7 +455,7 @@
     <div class="modal__dialog" role="document">
       <button class="modal__close" aria-label="Close" data-close="true">×</button>
 
-      <img src="/static/images/room-102.jpg" alt="Room SU-102" class="modal__hero">
+      <img src="static/images/room-102.jpg" alt="Room SU-102" class="modal__hero">
       <h2 id="room102-title" class="modal__title">SU-102 — Up to 6 People</h2>
 
       <div class="modal__meta">
@@ -491,7 +491,7 @@
     <div class="modal__dialog" role="document">
       <button class="modal__close" aria-label="Close" data-close="true">×</button>
 
-      <img src="/static/images/room-103.jpg" alt="Room SU-103" class="modal__hero">
+      <img src="static/images/room-103.jpg" alt="Room SU-103" class="modal__hero">
       <h2 id="room103-title" class="modal__title">SU-103 — Up to 6 People</h2>
 
       <div class="modal__meta">

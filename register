@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- 全站样式 / 登录态工具 -->
-  <link rel="stylesheet" href="/static/assets/css/style.css">
-  <script src="/static/assets/js/auth-mock.js" defer></script>
+  <link rel="stylesheet" href="static/assets/css/style.css">
+  <script src="static/assets/js/auth-mock.js" defer></script>
 
   <style>
     .auth-wrap{min-height:calc(100vh - var(--nav-h,72px));display:grid;place-items:center;padding:36px 16px;}
@@ -40,7 +40,7 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="/">
-        <img src="/static/images/warwick-logo.png" alt="Warwick" width="160">
+        <img src="static/images/warwick-logo.png" alt="Warwick" width="160">
       </a>
       <nav class="nav-center">
         <a href="/" class="nav-link">Home</a>

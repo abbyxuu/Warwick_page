@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Flask 静态资源 -->
-  <link rel="stylesheet" href="/static/assets/css/style.css">
+  <link rel="stylesheet" href="static/assets/css/style.css">
   <!-- 先加载登录态工具（defer 不阻塞渲染） -->
-  <script src="/static/assets/js/auth-mock.js" defer></script>
+  <script src="static/assets/js/auth-mock.js" defer></script>
 
   <style>
     .auth-wrap{min-height:calc(100vh - var(--nav-h,72px));display:grid;place-items:center;padding:36px 16px;}
@@ -38,7 +38,7 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="/">
-        <img src="/static/images/warwick-logo.png" alt="Warwick" width="160">
+        <img src="static/images/warwick-logo.png" alt="Warwick" width="160">
       </a>
       <nav class="nav-center">
         <a href="/" class="nav-link">Home</a>

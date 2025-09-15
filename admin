@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Admin - Warwick SU</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/static/assets/css/style.css">
+  <link rel="stylesheet" href="static/assets/css/style.css">
   <style>
     .container{max-width:1100px;margin:0 auto;padding:20px}
     .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:14px 0}
@@ -21,8 +21,8 @@
     .tools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
     input,select{padding:.5rem .6rem;border:1px solid #e5e7eb;border-radius:10px}
   </style>
-  <script src="/static/assets/js/auth-mock.js" defer></script>
-  <script src="/static/assets/js/admin.js" defer></script>
+  <script src="static/assets/js/auth-mock.js" defer></script>
+  <script src="static/assets/js/admin.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -83,8 +83,8 @@
       </table>
     </section>
   </main>
-  <script src="/static/assets/js/auth-mock.js" defer></script>
-<script src="/static/assets/js/admin.js" defer></script>
+  <script src="static/assets/js/auth-mock.js" defer></script>
+<script src="static/assets/js/admin.js" defer></script>
 
 </body>
 </html>

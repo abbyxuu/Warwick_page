@@ -6,15 +6,15 @@
   <title>Warwick SU - Rooms</title>
 
   <!-- Flask 静态资源路径 -->
-  <link rel="stylesheet" href="/static/assets/css/style.css">
-  <script src="/static/assets/js/auth-mock.js" defer></script>
+  <link rel="stylesheet" href="static/assets/css/style.css">
+  <script src="static/assets/js/auth-mock.js" defer></script>
 </head>
 <body>
   <!-- Header / Nav -->
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="/">
-        <img src="/static/images/warwick-logo.png" alt="Warwick" width="180">
+        <img src="static/images/warwick-logo.png" alt="Warwick" width="180">
       </a>
 
       <!-- 中间导航（居中） -->
@@ -54,7 +54,7 @@
       <div class="card-grid">
         <!-- 1 -->
         <article class="room-card">
-          <img src="/static/images/room-101.jpg" alt="Room SU-101" class="room-thumb">
+          <img src="static/images/room-101.jpg" alt="Room SU-101" class="room-thumb">
           <div class="room-card__body">
             <div class="room-card__header">
               <h3>SU-101</h3>
@@ -77,7 +77,7 @@
 
         <!-- 2 -->
         <article class="room-card">
-          <img src="/static/images/room-102.jpg" alt="Room SU-102" class="room-thumb">
+          <img src="static/images/room-102.jpg" alt="Room SU-102" class="room-thumb">
           <div class="room-card__body">
             <div class="room-card__header">
               <h3>SU-102</h3>
@@ -93,7 +93,7 @@
 
         <!-- 3 -->
         <article class="room-card">
-          <img src="/static/images/room-103.jpg" alt="Room SU-103" class="room-thumb">
+          <img src="static/images/room-103.jpg" alt="Room SU-103" class="room-thumb">
           <div class="room-card__body">
             <div class="room-card__header">
               <h3>SU-103</h3>
@@ -116,7 +116,7 @@
 
         <!-- 4 -->
         <article class="room-card">
-          <img src="/static/images/room-104.jpg" alt="Room SU-104" class="room-thumb">
+          <img src="static/images/room-104.jpg" alt="Room SU-104" class="room-thumb">
           <div class="room-card__body">
             <div class="room-card__header">
               <h3>SU-104</h3>
@@ -139,7 +139,7 @@
 
         <!-- 5 -->
         <article class="room-card">
-          <img src="/static/images/room-105.jpg" alt="Room SU-105" class="room-thumb">
+          <img src="static/images/room-105.jpg" alt="Room SU-105" class="room-thumb">
           <div class="room-card__body">
             <div class="room-card__header">
               <h3>SU-105</h3>
@@ -155,7 +155,7 @@
 
         <!-- 6 -->
         <article class="room-card">
-          <img src="/static/images/room-106.jpg" alt="Room SU-106" class="room-thumb">
+          <img src="static/images/room-106.jpg" alt="Room SU-106" class="room-thumb">
           <div class="room-card__body">
             <div class="room-card__header">
               <h3>SU-106</h3>
